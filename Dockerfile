@@ -7,6 +7,8 @@ USER root
 
 RUN pip install --upgrade pip
 
+RUN apt-get update && apt-get -y install vowpal-wabbit && apt-get -y install cmake
+
 # XGBoost
 RUN git clone --recursive https://github.com/dmlc/xgboost && \
     cd xgboost && \
@@ -25,11 +27,8 @@ RUN wget https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc
 # Keras with TensorFlow backend
 RUN pip install keras
 
-# update main conda packages
-RUN conda update --quiet --yes numpy scipy pandas matplotlib seaborn statsmodels scikit-learn
-
 # some other useful libraries
-RUN pip install seaborn pydot plotly nltk textblob theano
+RUN pip install seaborn pydot plotly nltk textblob
 
 # Switch back to user to avoid accidental container runs as root
 USER $NB_USER
