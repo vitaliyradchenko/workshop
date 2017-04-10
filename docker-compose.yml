@@ -2,8 +2,8 @@ version: '2'
 
 services:
   jupyter:
-    container_name: mlcourse_open
-    image: radchenko/mlcourse_open
+    container_name: workshop
+    image: radchenko/workshop
     working_dir: /notebooks
     ports:
       - "7777:8888"
