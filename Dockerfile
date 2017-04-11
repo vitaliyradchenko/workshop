@@ -20,6 +20,8 @@ RUN cd /usr/local/src && git clone --recursive --depth 1 https://github.com/Micr
     cd LightGBM && mkdir build && cd build && cmake .. && make -j $(nproc) && \
     cd /usr/local/src/LightGBM/python-package && python setup.py install 
 
+RUN pip install theano
+
 # TensorFlow 
 RUN wget https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc0-cp35-cp35m-linux_x86_64.whl && \
     pip install tensorflow-0.10.0rc0-cp35-cp35m-linux_x86_64.whl
@@ -29,6 +31,8 @@ RUN git clone https://github.com/facebookresearch/fastText.git && \
     cd fastText && \
     make && \
     cd ..
+
+RUN pip install fasttext
 
 # install spacy
 RUN pip install -U spacy
@@ -40,7 +44,7 @@ RUN pip install --upgrade gensim
 RUN pip install keras
 
 # some other useful libraries
-RUN pip install seaborn pydot plotly https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz textblob theano
+RUN pip install seaborn pydot https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz textblob
 
 # Switch back to user to avoid accidental container runs as root
 USER $NB_USER
