@@ -41,7 +41,7 @@ RUN pip install -U spacy
 RUN pip install --upgrade gensim
 
 # Keras with TensorFlow backend
-RUN pip install keras
+RUN pip install https://github.com/fchollet/keras/tarball/1.2.2
 
 # some other useful libraries
 RUN pip install seaborn pydot https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz textblob
