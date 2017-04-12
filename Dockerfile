@@ -43,8 +43,11 @@ RUN pip install --upgrade gensim
 # Keras with TensorFlow backend
 RUN pip install https://github.com/fchollet/keras/tarball/1.2.2
 
+# update main conda packages
+RUN conda update --quiet --yes numpy scipy pandas matplotlib seaborn statsmodels scikit-learn
+
 # some other useful libraries
-RUN pip install seaborn pydot https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz textblob
+RUN pip install https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz textblob Scrapy beautifulsoup4
 
 # Switch back to user to avoid accidental container runs as root
 USER $NB_USER
