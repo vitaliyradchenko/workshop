@@ -9,8 +9,6 @@ RUN pip install --upgrade pip
 
 RUN apt-get update && apt-get -y install cmake
 
-RUN apt-get install python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev
-
 # XGBoost
 RUN git clone --recursive https://github.com/dmlc/xgboost && \
     cd xgboost && \
@@ -49,7 +47,7 @@ RUN pip install https://github.com/fchollet/keras/tarball/1.2.2
 RUN conda update --quiet --yes numpy scipy pandas matplotlib seaborn statsmodels scikit-learn
 
 # some other useful libraries
-RUN pip install https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz textblob Scrapy beautifulsoup4 lxml pydot 
+RUN pip install https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz textblob beautifulsoup4 lxml pydot 
 
 # Switch back to user to avoid accidental container runs as root
 USER $NB_USER
