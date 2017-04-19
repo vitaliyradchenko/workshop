@@ -9,6 +9,8 @@ RUN pip install --upgrade pip
 
 RUN apt-get update && apt-get -y install cmake
 
+RUN apt-get install python-pip python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
+
 # XGBoost
 RUN git clone --recursive https://github.com/dmlc/xgboost && \
     cd xgboost && \
