@@ -49,5 +49,8 @@ RUN conda update --quiet --yes numpy scipy pandas matplotlib seaborn statsmodels
 # some other useful libraries
 RUN pip install https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz textblob beautifulsoup4 lxml pydot 
 
+RUN python3 -m textblob.download_corpora
+RUN python3 -m spacy download en
+
 # Switch back to user to avoid accidental container runs as root
 USER $NB_USER
