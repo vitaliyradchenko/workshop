@@ -51,6 +51,7 @@ RUN pip install https://pypi.python.org/packages/source/n/nltk/nltk-3.2.1.tar.gz
 
 RUN python3 -m textblob.download_corpora
 RUN python3 -m spacy download en
+RUN python3 -m nltk.downloader all
 
 # Switch back to user to avoid accidental container runs as root
 USER $NB_USER
